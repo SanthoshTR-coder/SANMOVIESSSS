@@ -34,7 +34,7 @@ const User = mongoose.model('User', new mongoose.Schema({
 
 // Middleware to protect routes
 function requireLogin(req, res, next) {
-  if (!req.session.userId) return res.redirect('/login');
+  if (!req.session.userId) {return res.redirect('/login');}
   next();
 }
 
@@ -98,9 +98,10 @@ app.get('/logout', (req, res) => {
 });
 
 // Protected route
-app.get('/', requireLogin, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+app.get('/', (req, res) => {
+  res.redirect('/signup');
 });
+
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/signup`));
