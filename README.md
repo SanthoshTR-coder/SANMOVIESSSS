@@ -1,3 +1,5 @@
+Package.json -"start"-node server.js
+
 <<<<<<< HEAD
 <div align="center">
   
